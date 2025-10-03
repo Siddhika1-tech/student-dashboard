@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT PERSONAL DASHBOARD</title>
+    <link rel="stylesheet" href ="index.css">
+    <script src ="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Personal Dashboard</h1>
+        </header>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('Profile', this)">Profile</button>
+            <button class="tab-button" onclick="openTab('AgeChecker', this)">Age Checker</button>
+            <button class="tab-button" onclick="openTab('Greeting', this)">Greeting</button>
+            <button class="tab-button" onclick="openTab('Calculator', this)">Calculator</button>
+            <button class="tab-button" onclick="openTab('Quotes', this)">Quotes</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="Profile" class="content-section active">
+                <h3>Personal Profile & JSON View</h3>
+                <form id="profile-form">
+                    <label for="student-name">Name:</label>
+                    <input type="text" id="student-name" placeholder="Enter your full name" required>
+
+                    <label for="student-birth-year">Birth Year:</label>
+                    <input type="number" id="student-birth-year" placeholder="e.g., 2005" min="1900" max="2025" required>
+
+                    <label for="student-city">City:</label>
+                    <input type="text" id="student-city" placeholder="Enter your city" required>
+
+                    <button type="submit">Save & View JSON</button>
+                </form>
+
+                <div class="result-box">
+                    <p><strong>Current Profile (JSON):</strong></p>
+                    <pre id="profile-display">No profile saved yet.</pre>
+                </div>
+            </div>
+
+            <div id="AgeChecker" class="content-section">
+                <h3>Age & Eligibility Checker</h3>
+                <button onclick="calculateAndDisplayAge()">Check Age</button>
+                <div class="result-box" id="age-result">
+                    Please save your profile first.
+                </div>
+            </div>
+
+            <div id="Greeting" class="content-section">
+                <h3>Time-Based Greeting</h3>
+                <p id="greeting-display" class="large-text-blue"></p>
+                <button onclick="displayPersonalizedGreeting()">Get Greeting Now</button>
+            </div>
+
+            <div id="Calculator" class="content-section">
+                <h3>Basic Calculator</h3>
+                <form>
+                    <label for="num1">First Number:</label>
+                    <input type="number" id="num1" value="10" required>
+
+                    <label for="num2">Second Number:</label>
+                    <input type="number" id="num2" value="5" required>
+
+                    <button type="button" onclick="calculate('add')">Add (+)</button>
+                    <button type="button" onclick="calculate('subtract')">Subtract (-)</button>
+                    <button type="button" onclick="calculate('multiply')">Multiply (*)</button>
+                    <button type="button" onclick="calculate('divide')">Divide (/)</button>
+                </form>
+                <div class="result-box" id="calculator-result">
+                    Result will appear here.
+                </div>
+            </div>
+
+            <div id="Quotes" class="content-section">
+                <h3>Motivational Quote</h3>
+                <button onclick="displayRandomQuote()">Get New Quote</button>
+                <div class="result-box" id="quote-display">
+                    Click the button to get a quote!
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
